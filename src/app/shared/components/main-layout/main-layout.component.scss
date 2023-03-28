@@ -1,0 +1,45 @@
+.navbar {
+  font-family: "Ubuntu", "Open Sans";
+}
+
+.navbar .logo {
+  width: 52px;
+  height: 52px;
+}
+
+.navbar .navbar-brand {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #27292E;
+}
+
+.navbar .nav-item {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .nav-link {
+  color: #27292E;
+}
+
+.navbar .nav-link:hover {
+  text-decoration-color: #3628D4;
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+}
+
+
+.footer {
+  margin-top: 100px;
+  background-color: #F1F3FF;
+}

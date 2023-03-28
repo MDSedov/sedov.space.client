@@ -1,0 +1,80 @@
+.row.about {
+  margin-top: 50px;
+  text-align: left;
+}
+
+.about h1 {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 130%;
+  color: #27292E;
+}
+
+.about svg {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.about img {
+  width: 100%;
+  height: auto;
+}
+
+.structure {
+  margin-top: 100px;
+}
+
+.structure svg {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.module {
+  vertical-align: middle;
+}
+
+.module .point {
+  text-align: center;
+}
+
+.module .time {
+  text-align: center;
+}
+
+.module .tasks {
+  margin: auto;
+  text-align: center;
+}
+
+.module .text {
+  margin: auto;
+}
+
+.lesson {
+  display: flex;
+}
+
+.lesson .point {
+  text-align: center;
+}
+
+.lesson .time {
+  margin: auto;
+  text-align: center;
+}
+
+.lesson .tasks {
+  margin: auto;
+  text-align: center;
+}
+
+.lesson .text {
+  margin: auto;
+}
+
+.lesson .text a {
+  color: #3628D4;
+  text-decoration: none;
+}

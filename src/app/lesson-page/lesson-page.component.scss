@@ -1,0 +1,195 @@
+h1 {
+  margin-top: 50px;
+  font-family: Ubuntu;
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 65px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+h2 {
+  margin-left: 35px;
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.lesson-text h3 {
+  margin-top: 30px;
+  font-family: Ubuntu;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.line {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.lesson-tasks ul li {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.lesson-text img {
+  width: 100%;
+}
+
+.lesson-tasks table {
+  border-collapse: collapse;
+  border-radius: 1em;
+  overflow: hidden;
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.lesson-tasks th, td {
+  padding: 1em;
+  background: #ddd;
+  border-bottom: 2px solid white;
+}
+
+.css-mine {
+  margin-top: 2em;
+  clear: both;
+}
+
+.lesson-links {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.lesson-links .btn {
+  border-width: 1.5px;
+  border-color: #3628D4;
+}
+
+.lesson-links button {
+  padding: 13px 40px;
+}
+
+.lesson-tasks {
+  position: relative;
+  margin-top: 30px;
+}
+
+.lesson-tasks .task-complexity {
+  position: absolute;
+  right: 100px;
+  top: 45px;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.lesson-tasks .task-complexity svg {
+  margin-left: 0px;
+}
+
+.lesson-tasks .accordion-item {
+  margin-bottom: 35px;
+  padding: 30px 100px;
+  background: #E2E7F6;
+  border-radius: 12px;
+}
+
+.lesson-tasks h3 {
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks h3 svg {
+  margin-left: 10px;
+}
+
+.lesson-tasks .accordion-body {
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.lesson-tasks .accordion-body strong {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks .accordion-body p {
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks .accordion-answers {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  margin-top: 30px;
+}
+
+.lesson-tasks .accordion-answer {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-top: 15px;
+}
+
+.lesson-tasks .accordion-answer label {
+  margin-left: 25px;
+  display: inline;
+}
+
+.lesson-tasks button.send-answer {
+  color: #fff;
+  background: #3628D4;
+  border-radius: 51px;
+  padding: 10px 40px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.lesson-tasks .accordion-body p.answer {
+  font-family: Ubuntu;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+
+

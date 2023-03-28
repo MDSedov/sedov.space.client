@@ -1,0 +1,181 @@
+.row h1 {
+  /* Пройдите онлайн-курс по языку запросов к базам данных */
+  width: 80%;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 130%;
+  text-align: center;
+  color: #27292E;
+  margin-top: 80px;
+}
+
+.row h3 {
+  /* Что бы стать ИТ-специалистом надо начинать с SQL */
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  text-align: center;
+  line-height: 32px;
+  color: #27292E;
+  margin-top: 45px;
+}
+
+.row .card {
+  margin-top: 50px;
+  border: 0px;
+}
+
+.row .card-body {
+  padding: 0px;
+  text-align: center;
+}
+
+.row .card-image {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.row .card-image svg {
+  display: inline;
+}
+
+.row .card h5 {
+  margin-top: 25px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  align-items: center;
+  text-align: center;
+  color: #27292E;
+}
+
+.row .card p {
+  margin-top: 15px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  align-items: center;
+  text-align: center;
+  color: #27292E;
+}
+
+.row .button {
+  /* Начать обучение */
+  background: #3628D4;
+  border-radius: 50px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 15px 35px;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  max-width: 270px;
+}
+
+.why-block>div>h2 {
+  /* Почему стоит выбрать нашу образовательную платформу? */
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 130%;
+  align-items: center;
+  color: #27292E;
+  margin-top: 0;
+}
+
+.why-block .brand-link {
+  text-decoration-line: none;
+}
+
+
+
+.why-block img {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+  height: auto;
+}
+
+.why-block p {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  align-items: center;
+  color: #27292E;
+}
+
+.why-block li {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+  align-items: center;
+  color: #27292E;
+}
+
+.why-block .brand {
+  color: #3628D4;
+}
+
+.progress-image {
+  margin-top: 30px;
+}
+
+.row h2 {
+  /* О команде */
+  margin-top: 100px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 40px;
+  align-items: center;
+  color: #27292E;
+}
+
+.about {
+  margin-top: 50px;
+}
+
+.about:last-child {
+  text-align: right;
+}
+
+.about img {
+  width: 100%;
+}
+
+.about a {
+  margin-right: 30px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: none;
+  color: #312E2E;
+}
+
+.about a:hover {
+  text-decoration-color: #3628D4;
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+}
+
