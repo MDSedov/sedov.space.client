@@ -1,13 +1,257 @@
 <div class="row">
   <div class="col-12">
     <h1>{{lesson.title}}</h1>
-    <!--<h1>Урок 3 - Знакомство с учебной базой данных</h1>-->
+    <!--<h1>Типы данных и понятие NULL</h1>-->
   </div>
 </div>
 
 <div class="lesson-text" [innerHTML]="lesson.text | sanitizedHtml"></div>
 
-<div class="row" style="margin-top: 60px;">
+<!--<div class="lesson-text">-->
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>Что такое типы данных?</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Мы уже знаем, что данные в базе данных хранятся в таблицах и что таблица состоит из колонок и строк.<p>-->
+      <!--<p>У каждой <b>колонки</b> таблицы есть название и тип данных. При создании таблицы мы задаем тип данных для каждой колонки таблицы.</p>-->
+      <!--<p>Тип данных говорит нам какие данные можно хранить в данной колонке. Строка же хранит конкретные данные указанного типа данных.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>Какие бывают типы данных?</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Рассмотрим таблицу Products хранящую в себе информацию о ноутбуках.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-md-6 col-12">-->
+      <!--<p>Products:</p>-->
+      <!--<table class="table table-hover table-bordered border-primary">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th scope="col">ID</th>-->
+          <!--<th scope="col">Name</th>-->
+          <!--<th scope="col">Description</th>-->
+          <!--<th scope="col">Count</th>-->
+          <!--<th scope="col">Price</th>-->
+          <!--<th scope="col">Created</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr>-->
+          <!--<th scope="row">1</th>-->
+          <!--<td>Ноутбук H-book 15 (T52E4W)</td>-->
+          <!--<td>Horizont H-book 15 МАК4 T52E4W — 15,6-дюймовый ноутбук, в котором используется процессор 11 поколения Tiger-lake-U Core-i5 1155G7, с динамическим разгоном тактовой частоты, обеспечивает бесперебойную работу и высокую производительность.</td>-->
+          <!--<td>43</td>-->
+          <!--<td>52990.55</td>-->
+          <!--<td>15.11.2022</td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+          <!--<th scope="row">2</th>-->
+          <!--<td>Ноутбук H-book 14 (T32E3W)</td>-->
+          <!--<td>Horizont H-book 14 МАК4 T32E3W — 14,1-дюймовый ноутбук, в котором используется процессор Intel Celeron N5100, с фиксированной тактовой частоты 1.1 ГГц, обеспечивает бесперебойную работу и достаточную производительность.</td>-->
+          <!--<td>57</td>-->
+          <!--<td>NULL</td>-->
+          <!--<td>09.11.2022</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Таблица Product состоит из 6-ти колонок. Каждая колонка таблицы хранит данные определенного типа. Рассмотрим какие типы данных есть в таблице Products:</p>-->
+      <!--<ul>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">SERIAL</span> - это специальный числовой тип данный испольемый для указания уникальных номеров.</p>-->
+          <!--<p><i>В таблице Products этот тип данных используется в колонке <span class="badge text-bg-primary">ID</span> где хранится униикальный номер пользователя.</i></p>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">CHAR</span> - этот символьный тип данных позволяет хранить набор из 256 символов или проще говоря строку из 256 букв, цифр и спецсимволов.</p>-->
+          <!--<p><i>В нашей таблице этот тип данных используется в колонке <span class="badge text-bg-primary">Name</span> хранящей название ноутбука и его модель.</i></p>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">VARCHAR</span> - это еще один символьный тип данных, который позволяет хранить строку любой длинны.</p>-->
+          <!--<p><i>Колонка <span class="badge text-bg-primary">Description</span> в таблице Products хранит в себе подробное описание ноутбука.</i></p>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">INTEGER</span> - это числовой тип данных позволяющий хранить простые <b>целые</b> числа.</p>-->
+          <!--<p><i>Колонка <span class="badge text-bg-primary">Count</span> как раз хранит в себе целое число с количеством ноутбуков имеющихся на складе.</i></p>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">NUMERIC</span> - это еще один числовой тип данных, но позволяющий хранить <b>дробные</b> числа с высокой точностью</p>-->
+          <!--<p><i>Этот тип данных часто используется для хранения финансовой информации - зарплата сотрудника, количество денежных средств на счете или в нашем случае в колонке <span class="badge text-bg-primary">Price</span> этот тип данных используется для хранения стоимости ноутбука.</i></p>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<p><span class="badge text-bg-primary">DATE</span> - этот тип данных позволяет хранить данные о дне, месяце и годе.</p>-->
+          <!--<p><i>В нашем случае данный тип данных используется в колонке <span class="badge text-bg-primary">Created</span> хранящей дату производства модели ноутбука.</i></p>-->
+        <!--</li>-->
+      <!--</ul>-->
+
+      <!--<p>В итоге мы познакомились с 6-тью типами данных:</p>-->
+      <!--<ul>-->
+        <!--<li>Три числовых - <span class="badge text-bg-primary">SERIAL</span>, <span class="badge text-bg-primary">INTEGER</span>, <span class="badge text-bg-primary">NUMERIC</span>;</li>-->
+        <!--<li>Два символьных - <span class="badge text-bg-primary">CHAR</span>, <span class="badge text-bg-primary">VARCHAR</span>;</li>-->
+        <!--<li>Один временной - <span class="badge text-bg-primary">DATE</span>.</li>-->
+      <!--</ul>-->
+
+      <!--<p>Существуют и другие типы данных, но мы, в рамках данного курса, будем работать только с вышеуказанными, которые являются наиболее популярными.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>Операции с типами данных?</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Стоит так же отметить, что от выбора типа данных зависит какие операции мы можем совершать над хранящимися в колонке данными.</p>-->
+      <!--<p>Например: если мы испольуем тип данных Integer, который позволяет хранить целые числа, тогда мы можем делать математические операции: сложение, умножение, вычитание и деление с данными этого типа. Однако, если мы работаем с данными типа Varchar т.е. строковыми данными, то мы уже НЕ можем использовать матемаческие операции. Мы же не можем поделить одну строку на другую?</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>Понятие NULL</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Рассмотрим ситуацию, когда у нас на склад поступили новые ноутбуки, но информации по какой стоимости они будут продаваться еще нет. В этом случае мы оставляем ячейку Price пустой. Пустые ячейки в таблице база данных помечает как NULL.</p>-->
+      <!--<p>В нашей таблице Products у ноутбука с ID = 2 не указана стоимость, поэтому в ячейке колонки Price база данных проставила NULL.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>DML - Data Manipulation Language</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Первая группа SQL команд - это <span class="badge text-bg-primary">DML</span>, которая расшифровывается как <span class="badge text-bg-primary">Data Manipulation Language</span> или <span class="badge text-bg-primary">Язык Манипуляции Данными</span>. Данная группа команд нужна для управления данными <b>внутри</b> таблицы базы данных.</p>-->
+      <!--<p>В DML входят следующие команды:</p>-->
+
+
+      <!--<p>Именно команды входящие в группу DML мы будем изучать в рамках данного курса.</p>-->
+      <!--<p>Команда <span class="badge text-bg-primary">select</span> является самой популярной и обладает широкими возможностями для получения (выборки) данных из таблиц базы данных. Именно изучению возможностей команды <span class="badge text-bg-primary">select</span> будет посвящена большая часть материалов данного курса.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>DDL - Data Definition Language</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Вторая группа SQL команд - это <span class="badge text-bg-primary">DDL</span>, которая расшифровывается как <span class="badge text-bg-primary">Data Definition Language</span> или <span class="badge text-bg-primary">Язык Определения Данных</span>. Данная группа команд нужна для управления <b>структурой</b> таблиц базы данных.</p>-->
+      <!--<p>В группу DDL входят следующие SQL команды:</p>-->
+      <!--<ul>-->
+        <!--<li><span class="badge text-bg-primary">CREATE</span> - данная команда позволяем нам <b>создать новую таблицу</b> с нужной нам структурой т.е. набором колонок (полей);</li>-->
+        <!--<li><span class="badge text-bg-primary">ALTER</span> - позволяет изменять структуру <b>существующей таблицы</b> т.е. добавлять или удалять колонки, менять настройки калонок;</li>-->
+        <!--<li><span class="badge text-bg-primary">DROP</span> - команда используется для полного удаления всей таблицы вместе с хранящимися в ней данными из базы данных;</li>-->
+        <!--<li><span class="badge text-bg-primary">RENAME</span> - команда нужна для изменения названия колонок внутри таблицы;</li>-->
+        <!--<li><span class="badge text-bg-primary">TRUNCATE</span> - эта команда полностью удаляет все данные из таблицы, но сама таблица при этом сохраняется.</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>TCL - Transaction Control Language</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Третья группа SQL команд - это <span class="badge text-bg-primary">TCL</span>, которая расшифровывается как <span class="badge text-bg-primary">Transaction Control Language</span> или <span class="badge text-bg-primary">Язык Управления Транзакциями</span>. Данная группа команд позволяет объединять несколько SQL команд в группу или транзакцию и в дальнейшем управлять данной транзакцией.</p>-->
+      <!--<p>Например: можно объединить в одну единую транзакцию несколько Insert команд, которые добавляют данные в таблицу. Далее если одна из Insert команд входящих в транзакцию завершилась ошибкой, тогда мы можем отменить (откатить) изменения сделанные всеми Insert командами входящими в транзакцию.</p>-->
+      <!--<p>В группу TCL входят следующие SQL команды:</p>-->
+      <!--<ul>-->
+        <!--<li><span class="badge text-bg-primary">COMMIT</span> - сохранить изменения;</li>-->
+        <!--<li><span class="badge text-bg-primary">ROLLBACK</span> - откатить изменения;</li>-->
+        <!--<li><span class="badge text-bg-primary">SAVEPOINT</span> - создать точку сохранения.</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>DCL - Data Control Language</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Четвертая и последняя группа SQL команд - это <span class="badge text-bg-primary">DCL</span>, которая расшифровывается как <span class="badge text-bg-primary">Data Control Language</span> или <span class="badge text-bg-primary">Язык Управления Данными</span>. У этой группы не очень удачное название, из которого не понятно за что эта группа отвечает. DCL команды нужна для управления доступами у пользователей к сущностям базы данных.</p>-->
+      <!--<p>Например: вы можете выдать пользователю права на чтение данных (Select) из всех таблиц базы данных. Однако, права на изменение данных (Insert, Update, Delete) этому же пользователю можете предоставить только для нескольких таблиц.</p>-->
+      <!--<p>В группу DCL входят следующие SQL команды:</p>-->
+      <!--<ul>-->
+        <!--<li><span class="badge text-bg-primary">GRANT</span> - выдать права пользователю;</li>-->
+        <!--<li><span class="badge text-bg-primary">REVOKE</span> - отобрать права у пользователя.</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<h3>Выводы</h3>-->
+      <!--<svg class="line" width="79" height="8" viewBox="0 0 79 8" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+        <!--<line x1="4" y1="4" x2="75" y2="4" stroke="#CCDBFF" stroke-width="8" stroke-linecap="round"/>-->
+      <!--</svg>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<p>Хотелось бы еще раз обратить внимание, что описанные выше SQL команды приведены для демонстрации широких возможностей SQL. У вас могли возникнуть сложности с пониманием материала изложенного в лекции - это нормально. В следующих лекциях мы максимально подробно разберем все основные SQL команды, необходимые на начальном уровне.</p>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="row lesson-tasks-title">
   <div class="col-12">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="25" cy="25" r="25" fill="#7E9DFB"/>

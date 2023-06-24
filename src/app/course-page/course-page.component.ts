@@ -45,7 +45,7 @@ export class CoursePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.http.get<CourseInterface>(environment.apiURL + "/api/courses/1")
+      this.http.get<CourseInterface>(environment.apiURL + "/api/course/1")
         .subscribe(response => {
           this.course = response;
         })
@@ -64,7 +64,7 @@ export class CoursePageComponent implements OnInit {
   }
 
   getAllModulesByCourse(): Observable<ModuleInterface[]> {
-    return this.http.get(environment.apiURL + "/api/courses/1/modules")
+    return this.http.get(environment.apiURL + "/api/course/1/modules")
       .pipe(map((response: {[key: string]: any}) => {
         return Object
           .keys(response)
@@ -76,7 +76,7 @@ export class CoursePageComponent implements OnInit {
   }
 
   getAllLessonsByCourse(): Observable<LessonInterface[]> {
-    return this.http.get(environment.apiURL + "/api/courses/1/lessons")
+    return this.http.get(environment.apiURL + "/api/course/1/lessons")
       .pipe(map((response: {[key: string]: any}) => {
         return Object
           .keys(response)

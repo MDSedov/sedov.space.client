@@ -73,11 +73,11 @@ export class LessonPageComponent implements OnInit {
   }
 
   getLessonById(id: number): Observable<LessonInterface> {
-    return this.http.get<LessonInterface>( environment.apiURL + "/api/lessons/" + id);
+    return this.http.get<LessonInterface>( environment.apiURL + "/api/lesson/" + id);
   }
 
   getAllTasksByLesson(id: number): Observable<TaskInterface[]> {
-    return this.http.get(environment.apiURL + "/api/lessons/" + id + "/tasks")
+    return this.http.get(environment.apiURL + "/api/lesson/" + id + "/tasks")
       .pipe(map((response: {[key: string]: any}) => {
         console.log(response);
         return Object
@@ -89,7 +89,7 @@ export class LessonPageComponent implements OnInit {
   }
 
   checkTask(id: number): void {
-    this.http.post<TaskCheck>(environment.apiURL + "/api/tasks/" + id + "/check", this.taskForm.value)
+    this.http.post<TaskCheck>(environment.apiURL + "/api/task/" + id + "/check", this.taskForm.value)
       .subscribe(response => {
         this.taskCheck = response.result;
       });
