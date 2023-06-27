@@ -1,0 +1,140 @@
+<div class="row account-container">
+  <div class="col-8 offset-2 account-form">
+
+    <div class="d-flex justify-content-center">
+      <h1 class="account-form-header">Персональные данные</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">
+        Заполните персональные данные личного кабинета
+      </p>
+    </div>
+
+    <form [formGroup]="personalDataForm" (ngSubmit)="changePersonalData()">
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="lastName"
+          type="input"
+          class="form-control"
+          id="floatingInputLastName"
+          placeholder="Фамилия"
+          [ngModel]="this.user.lastName"
+          required
+        >
+        <label for="floatingInputLastName">Фамилия</label>
+      </div>
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="firstName"
+          type="input"
+          class="form-control"
+          id="floatingInputFirstName"
+          placeholder="Имя"
+          [ngModel]="this.user.firstName"
+          required
+        >
+        <label for="floatingInputFirstName">Имя</label>
+      </div>
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="patronymicName"
+          type="input"
+          class="form-control"
+          id="floatingInputPatronymicName"
+          placeholder="Отчество"
+          [ngModel]="this.user.patronymicName"
+          required
+        >
+        <label for="floatingInputPatronymicName">Отчество</label>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!personalDataForm.valid">Сохранить изменения</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="row account-container">
+  <div class="col-8 offset-2 account-form">
+
+    <div class="d-flex justify-content-center">
+      <h1 class="account-form-header">Электронная почта</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">Измените адрес электронной почты личного кабинета</p>
+    </div>
+
+    <form [formGroup]="changeEmailForm" (ngSubmit)="changeEmail()">
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="email"
+          type="input"
+          class="form-control"
+          id="floatingInputEmail"
+          placeholder="your_name@yandex.ru"
+          [ngModel]="this.user.email"
+          required
+        >
+        <label for="floatingInputEmail">Адрес электронной почты</label>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!changeEmailForm.valid">Сохранить изменения</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="row account-container">
+  <div class="col-8 offset-2 account-form">
+
+    <div class="d-flex justify-content-center">
+      <h1 class="account-form-header">Пароль</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">Установите новый пароль личного кабинета</p>
+    </div>
+
+    <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()">
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="password"
+          type="input"
+          class="form-control"
+          id="floatingInputPassword"
+          placeholder="new_password"
+          required
+        >
+        <label for="floatingInputPassword">Новый пароль</label>
+      </div>
+
+      <div class="form-floating mb-3 d-flex justify-content-center">
+        <input
+          formControlName="confirmationPassword"
+          type="input"
+          class="form-control"
+          id="floatingInputConfirmationPassword"
+          placeholder="new_password"
+          required
+        >
+        <label for="floatingInputConfirmationPassword">Повторите новый пароль</label>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!changePasswordForm.valid">Сохранить изменения</button>
+      </div>
+
+    </form>
+  </div>
+</div>

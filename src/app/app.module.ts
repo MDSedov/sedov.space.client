@@ -15,6 +15,12 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {UserService} from './services/user.service';
 import {AuthenticationComponent} from './user/authentication/authentication.component';
 import {AuthenticationInterceptor} from "./interceptors/AuthenticationInterceptor";
+import { SigninComponent } from './user/signin/signin.component';
+import { SignupComponent } from './user/signup/signup.component';
+import { ConfirmationComponent } from './user/confirmation/confirmation.component';
+import { InfoComponent } from './user/info/info.component';
+import { EmailComponent } from './user/email/email.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +30,12 @@ import {AuthenticationInterceptor} from "./interceptors/AuthenticationIntercepto
     LessonPageComponent,
     SanitizedHtmlPipe,
     AccountComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    SigninComponent,
+    SignupComponent,
+    ConfirmationComponent,
+    InfoComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,

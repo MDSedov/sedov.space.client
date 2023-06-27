@@ -1,0 +1,127 @@
+<div class="row auth-form-container">
+  <div class="col-8 offset-2 auth-form">
+
+    <div class="d-flex justify-content-center">
+      <h1 class="auth-form-header">Вход или регистрация</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">Введите адрес электронной почты для входа или создания личного кабинета</p>
+    </div>
+
+    <form [formGroup]="emailForm" (ngSubmit)="findAccount()">
+      <div class="form-floating">
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="floatingEmail"
+          placeholder="your_name@yandex.ru"
+          required
+        >
+        <label for="floatingEmail">Адрес электронной почты</label>
+        <div class="validations" *ngIf="emailForm.get('email')?.invalid && emailForm.get('email')?.touched">
+          <small class="error" *ngIf="emailForm.get('email')?.errors?.required">
+            Адрес электронной почты не может быть пустым
+          </small>
+          <small class="error" *ngIf="emailForm.get('email')?.errors?.email">
+            Введите корректный адрес электронной почты
+          </small>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!emailForm.valid">Продолжить</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+  <!--<div class="row auth-form-container" *ngSwitchCase="'signinEmailForm'">-->
+    <!--<div class="col-8 offset-2 auth-form">-->
+
+      <!--<div class="d-flex justify-content-center">-->
+        <!--<h1 class="auth-form-header">Вход без пароля</h1>-->
+      <!--</div>-->
+
+      <!--<div class="d-flex justify-content-center">-->
+        <!--<p class="auth-form-description">-->
+          <!--Укажите адрес электронной почты Вашего личного кабинета и мы пришлем письмо для входа-->
+        <!--</p>-->
+      <!--</div>-->
+
+      <!--<form [formGroup]="signinEmailForm" (ngSubmit)="sendSigninEmail()">-->
+
+        <!--<div class="form-floating mb-3">-->
+          <!--<input-->
+            <!--formControlName="email"-->
+            <!--type="email"-->
+            <!--class="form-control"-->
+            <!--id="floatingInputSigninEmail"-->
+            <!--[ngModel]="this.email"-->
+            <!--placeholder="your_name@yandex.ru"-->
+            <!--required-->
+          <!--&gt;-->
+          <!--<label for="floatingInputSigninEmail">Адрес электронной почты</label>-->
+          <!--<div class="validations" *ngIf="signinEmailForm.get('email')?.invalid && signinEmailForm.get('email')?.touched">-->
+            <!--<small class="error" *ngIf="signinEmailForm.get('email')?.errors?.required">-->
+              <!--Адрес электронной почты не может быть пустым-->
+            <!--</small>-->
+            <!--<small class="error" *ngIf="signinEmailForm.get('email')?.errors?.email">-->
+              <!--Введите корректный адрес электронной почты-->
+            <!--</small>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="d-flex justify-content-center">-->
+          <!--<button type="submit" [disabled]="!signinEmailForm.valid">Отправить письмо</button>-->
+        <!--</div>-->
+
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<div class="row auth-form-container" *ngSwitchCase="'signupEmailForm'">-->
+    <!--<div class="col-8 offset-2 auth-form">-->
+
+      <!--<div class="d-flex justify-content-center">-->
+        <!--<h1 class="auth-form-header">Письмо для активации</h1>-->
+      <!--</div>-->
+
+      <!--<div class="d-flex justify-content-center">-->
+        <!--<p class="auth-form-description">-->
+          <!--Укажите адрес электронной почты личного кабинета и мы пришлем письмо со ссылкой для активации-->
+        <!--</p>-->
+      <!--</div>-->
+
+      <!--<form [formGroup]="signupEmailForm" (ngSubmit)="sendSignupEmail()">-->
+
+        <!--<div class="form-floating mb-3">-->
+          <!--<input-->
+            <!--formControlName="email"-->
+            <!--type="email"-->
+            <!--class="form-control"-->
+            <!--id="signupEmail"-->
+            <!--[ngModel]="this.email"-->
+            <!--placeholder="your_name@yandex.ru"-->
+            <!--required-->
+          <!--&gt;-->
+          <!--<label for="signupEmail">Адрес электронной почты</label>-->
+          <!--<div class="validations" *ngIf="signupEmailForm.get('email')?.invalid && signupEmailForm.get('email')?.touched">-->
+            <!--<small class="error" *ngIf="signupEmailForm.get('email')?.errors?.required">-->
+              <!--Адрес электронной почты не может быть пустым-->
+            <!--</small>-->
+            <!--<small class="error" *ngIf="signupEmailForm.get('email')?.errors?.email">-->
+              <!--Введите корректный адрес электронной почты-->
+            <!--</small>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="d-flex justify-content-center">-->
+          <!--<button type="submit" [disabled]="!signupEmailForm.valid">Отправить письмо</button>-->
+        <!--</div>-->
+
+      <!--</form>-->
+    <!--</div>-->
+  <!--</div>-->

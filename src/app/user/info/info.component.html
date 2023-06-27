@@ -1,0 +1,22 @@
+<div class="row auth-form-container">
+  <div class="col-8 offset-2 auth-form">
+    <div class="d-flex justify-content-center">
+      <h1 class="auth-form-header">
+        {{this.userInfo.header}}
+      </h1>
+    </div>
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">
+        {{this.userInfo.message}}
+      </p>
+    </div>
+    <div class="d-flex justify-content-center" [ngClass]="{
+        showUserInfoButton: this.userInfo.showButton,
+        hideUserInfoButton: !this.userInfo.showButton
+      }">
+      <button type="submit" (click)="buttonClick()">
+        {{this.userInfo.buttonTitle}}
+      </button>
+    </div>
+  </div>
+</div>

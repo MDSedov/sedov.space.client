@@ -1,0 +1,83 @@
+<div class="row auth-form-container">
+  <div class="col-8 offset-2 auth-form">
+
+    <div class="d-flex justify-content-center">
+      <h1 class="auth-form-header">Создание личного кабинета</h1>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <p class="auth-form-description">
+        Введите адрес электронной почты и придумайте паполь для создания нового личного кабинета
+      </p>
+    </div>
+
+    <form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+      <div class="form-floating mb-3">
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="floatingInputSignupEmail"
+        placeholder="your_name@yandex.ru"
+        [ngModel]="this.getTempEmail()"
+        required
+      >
+      <label for="floatingInputSignupEmail">Адрес Вашей электронной почты</label>
+      <div class="validations" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+        <small class="error" *ngIf="signupForm.get('email')?.errors?.required">
+          Адрес электронной почты не может быть пустым
+        </small>
+        <small class="error" *ngIf="signupForm.get('email')?.errors?.email">
+          Введите корректный адрес электронной почты
+        </small>
+      </div>
+    </div>
+
+      <div class="form-floating mb-3">
+        <input
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="floatingInputSignupPassword"
+          placeholder="your_password"
+          required
+        >
+        <label for="floatingInputSignupPassword">Придумайте пароль</label>
+        <div class="validations" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          <small class="error" *ngIf="signupForm.get('password')?.errors?.required">
+            Пароль не может быть пустым
+          </small>
+          <small class="error" *ngIf="signupForm.get('password')?.errors?.minlength">
+            Пароль должен содержать не менее {{signupForm.get('password')?.errors?.minlength.requiredLength}} символов
+          </small>
+        </div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          formControlName="confirmationPassword"
+          type="password"
+          class="form-control"
+          id="floatingInputSignupConfirmationPassword"
+          placeholder="your_password"
+          required
+        >
+        <label for="floatingInputSignupConfirmationPassword">Повторите пароль</label>
+        <div class="validations" *ngIf="signupForm.get('confirmationPassword')?.invalid && signupForm.get('confirmationPassword')?.touched">
+          <small class="error" *ngIf="signupForm.get('confirmationPassword')?.errors?.required">
+            Пароль не может быть пустым
+          </small>
+          <small class="error" *ngIf="signupForm.get('confirmationPassword')?.errors?.minlength">
+            Пароль должен содержать не менее {{signupForm.get('password')?.errors?.minlength.requiredLength}} символов
+          </small>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="!signupForm.valid">Создать</button>
+      </div>
+
+    </form>
+  </div>
+</div>
