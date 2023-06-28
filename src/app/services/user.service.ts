@@ -56,9 +56,22 @@ export class UserService {
   getCurrentUser():User {
     this.user = new User();
     this.user.email = localStorage.getItem('email') as string;
+
     this.user.firstName = localStorage.getItem('firstName') as string;
+    if (this.user.firstName == "null") {
+      this.user.firstName = "";
+    }
+
     this.user.lastName = localStorage.getItem('lastName') as string;
+    if (this.user.lastName == "null") {
+      this.user.lastName = "";
+    }
+
     this.user.patronymicName = localStorage.getItem('patronymicName') as string;
+    if (this.user.patronymicName == "null") {
+      this.user.patronymicName = "";
+    }
+
     return this.user;
   }
 

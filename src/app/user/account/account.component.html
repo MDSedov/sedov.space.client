@@ -7,7 +7,7 @@
 
     <div class="d-flex justify-content-center">
       <p class="auth-form-description">
-        Заполните персональные данные личного кабинета
+        Заполните персональные данные
       </p>
     </div>
 
@@ -21,7 +21,6 @@
           id="floatingInputLastName"
           placeholder="Фамилия"
           [ngModel]="this.user.lastName"
-          required
         >
         <label for="floatingInputLastName">Фамилия</label>
       </div>
@@ -34,7 +33,6 @@
           id="floatingInputFirstName"
           placeholder="Имя"
           [ngModel]="this.user.firstName"
-          required
         >
         <label for="floatingInputFirstName">Имя</label>
       </div>
@@ -47,7 +45,6 @@
           id="floatingInputPatronymicName"
           placeholder="Отчество"
           [ngModel]="this.user.patronymicName"
-          required
         >
         <label for="floatingInputPatronymicName">Отчество</label>
       </div>
