@@ -305,34 +305,92 @@
               </svg>
             </div>
           </h3>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+
+          <!--<div *ngIf="task.type == 'test'"-->
+            <!--id="collapseOne"-->
+            <!--class="accordion-collapse collapse show"-->
+            <!--aria-labelledby="headingOne"-->
+            <!--data-bs-parent="#accordionExample"-->
+          <!--&gt;-->
+            <!--<div class="accordion-body">-->
+              <!--<p><strong>{{task.title}}</strong></p>-->
+              <!--<p>Выберите правильный вариант ответа</p>-->
+              <!--<form [formGroup]="taskTestForm" (ngSubmit)="checkTask(task.id)">-->
+                <!--<div class="accordion-answers">-->
+                  <!--<div class="accordion-answer">-->
+                    <!--<input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="testAnswer">-->
+                    <!--<label for="task_{{task.id}}_answer_1">{{task.option1}}</label>-->
+                  <!--</div>-->
+                  <!--<div class="accordion-answer">-->
+                    <!--<input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="testAnswer">-->
+                    <!--<label for="task_{{task.id}}_answer_2">{{task.option2}}</label>-->
+                  <!--</div>-->
+                  <!--<div class="accordion-answer">-->
+                    <!--<input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="testAnswer">-->
+                    <!--<label for="task_{{task.id}}_answer_3">{{task.option3}}</label>-->
+                  <!--</div>-->
+                  <!--<div class="accordion-answer">-->
+                    <!--<input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="testAnswer">-->
+                    <!--<label for="task_{{task.id}}_answer_4">{{task.option4}}</label>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <!--<button class="btn send-answer" type="submit">Проверить</button>-->
+              <!--</form>-->
+              <!--<p class="answer" *ngIf="taskCheck=='true'">Верно!</p>-->
+              <!--<p class="answer" *ngIf="taskCheck=='false'">Ошибка!</p>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <div *ngIf="task.type == 'request'"
+               id="collapseOne"
+               class="accordion-collapse collapse show"
+               aria-labelledby="headingOne"
+               data-bs-parent="#accordionExample"
+          >
+            <div>
               <p><strong>{{task.title}}</strong></p>
-              <p>Выберите правильный вариант ответа</p>
-              <form [formGroup]="taskForm" (ngSubmit)="checkTask(task.id)">
-                <div class="accordion-answers">
-                  <div class="accordion-answer">
-                    <input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="answer">
-                    <label for="task_{{task.id}}_answer_1">{{task.option1}}</label>
-                  </div>
-                  <div class="accordion-answer">
-                    <input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="answer">
-                    <label for="task_{{task.id}}_answer_2">{{task.option2}}</label>
-                  </div>
-                  <div class="accordion-answer">
-                    <input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="answer">
-                    <label for="task_{{task.id}}_answer_3">{{task.option3}}</label>
-                  </div>
-                  <div class="accordion-answer">
-                    <input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="answer">
-                    <label for="task_{{task.id}}_answer_4">{{task.option4}}</label>
-                  </div>
-                </div>
+              <p>{{task.text}}</p>
+              <form [formGroup]="taskForm" (ngSubmit)="taskCheck()">
+                <input formControlName="id" type="hidden" [ngModel]="this.task.id">
+                <textarea formControlName="answer" class="form-control" rows="3">select * from table;</textarea>
                 <button class="btn send-answer" type="submit">Проверить</button>
               </form>
-              <p class="answer" *ngIf="taskCheck=='true'">Верно!</p>
-              <p class="answer" *ngIf="taskCheck=='false'">Ошибка!</p>
             </div>
+
+            <div>
+              <p>Результат вашего запроса</p>
+              <table class="table table-hover">
+                <thead>
+                <tr class="table-primary" *ngFor="let row of this.taskRequestAnswer | keyvalue | slice:0:1">
+                  <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of this.taskRequestAnswer | keyvalue">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <br>
+
+            <div>
+              <p>Результат правильного запроса</p>
+              <table class="table table-hover">
+                <thead>
+                  <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue | slice:0:1">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>

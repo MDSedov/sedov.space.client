@@ -2,11 +2,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable} from "rxjs";
 import {ActivatedRoute, Params} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {map} from "rxjs/operators";
 import {FormControl, FormGroup} from "@angular/forms";
-import {response} from "express";
-import {EnvironmentService} from "../services/environment.service";
 import { environment } from 'src/environments/environment';
+import {TaskService} from "../services/task.service";
 
 export interface LessonInterface {
   id: number,
@@ -47,15 +45,16 @@ export class LessonPageComponent implements OnInit {
 
   lesson: LessonInterface;
   tasks: TaskInterface[];
-  taskCheck: string;
+  taskCorrectAnswer: Array<any>;
+  taskRequestAnswer: Array<any>;
 
   taskForm: FormGroup;
 
   constructor(private route: ActivatedRoute,
+              private taskService: TaskService,
               private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.taskCheck = "";
     this.route.params.subscribe((params: Params) => {
 
       this.getLessonById(params['id']).subscribe(response => {
@@ -65,10 +64,11 @@ export class LessonPageComponent implements OnInit {
       this.getAllTasksByLesson(params['id']).subscribe(tasks => {
         this.tasks = tasks;
       });
+    });
 
-      this.taskForm = new FormGroup({
-        answer: new FormControl(null)
-      });
+    this.taskForm = new FormGroup({
+      id: new FormControl(null),
+      answer: new FormControl(null)
     });
   }
 
@@ -77,21 +77,19 @@ export class LessonPageComponent implements OnInit {
   }
 
   getAllTasksByLesson(id: number): Observable<TaskInterface[]> {
-    return this.http.get(environment.apiURL + "/api/lesson/" + id + "/tasks")
-      .pipe(map((response: {[key: string]: any}) => {
-        console.log(response);
-        return Object
-          .keys(response)
-          .map(key => ({
-            ...response[key]
-          }))
-      }))
+    return this.taskService.getAllTasksByLesson(id);
   }
 
-  checkTask(id: number): void {
-    this.http.post<TaskCheck>(environment.apiURL + "/api/task/" + id + "/check", this.taskForm.value)
-      .subscribe(response => {
-        this.taskCheck = response.result;
-      });
+  taskCheck():void {
+    this.taskService.taskCheck(this.taskForm.value).subscribe(
+      (response) => {
+        this.taskRequestAnswer = response.body.taskRequestAnswer[1];
+        this.taskCorrectAnswer = response.body.taskCorrectAnswer;
+        console.log(this.taskRequestAnswer);
+      },
+      (error: {[key: string]: any}) => {
+        console.log(error);
+      }
+    )
   }
 }
