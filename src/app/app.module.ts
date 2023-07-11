@@ -5,8 +5,8 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import {MainLayoutComponent} from './shared/components/main-layout/main-layout.component';
 import {HomePageComponent} from './home-page/home-page.component';
-import {CoursePageComponent} from './course-page/course-page.component';
-import {LessonPageComponent} from './lesson-page/lesson-page.component';
+import {CourseComponent} from './course/course/course.component';
+import {LessonComponent} from './course/lesson/lesson.component';
 import {SanitizedHtmlPipe} from './pipes/sanitized-html.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AccountComponent} from './user/account/account.component';
@@ -20,14 +20,15 @@ import { SignupComponent } from './user/signup/signup.component';
 import { ConfirmationComponent } from './user/confirmation/confirmation.component';
 import { InfoComponent } from './user/info/info.component';
 import { EmailComponent } from './user/email/email.component';
+import { TaskComponent } from './course/task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLayoutComponent,
     HomePageComponent,
-    CoursePageComponent,
-    LessonPageComponent,
+    CourseComponent,
+    LessonComponent,
     SanitizedHtmlPipe,
     AccountComponent,
     AuthenticationComponent,
@@ -35,7 +36,8 @@ import { EmailComponent } from './user/email/email.component';
     SignupComponent,
     ConfirmationComponent,
     InfoComponent,
-    EmailComponent
+    EmailComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

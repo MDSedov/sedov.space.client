@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 export interface CourseInterface {
   id: number,
@@ -31,10 +31,10 @@ export interface LessonInterface {
 
 @Component({
   selector: 'app-course-page',
-  templateUrl: './course-page.component.html',
-  styleUrls: ['./course-page.component.scss']
+  templateUrl: './course.component.html',
+  styleUrls: ['./course.component.scss']
 })
-export class CoursePageComponent implements OnInit {
+export class CourseComponent implements OnInit {
 
   course: CourseInterface;
   modules: ModuleInterface[];
