@@ -10,7 +10,6 @@ import {LessonComponent} from './course/lesson/lesson.component';
 import {SanitizedHtmlPipe} from './pipes/sanitized-html.pipe';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AccountComponent} from './user/account/account.component';
-import {CookieService} from 'ngx-cookie-service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {UserService} from './services/user.service';
 import {AuthenticationComponent} from './user/authentication/authentication.component';
@@ -48,7 +47,6 @@ import { TaskComponent } from './course/task/task.component';
   ],
   providers: [
     UserService,
-    CookieService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,

@@ -53,12 +53,10 @@ export class CourseComponent implements OnInit {
 
     this.getAllModulesByCourse().subscribe(modules => {
       this.modules = modules;
-      console.log(this.modules);
     });
 
     this.getAllLessonsByCourse().subscribe(lessons => {
       this.lessons = lessons;
-      console.log(this.lessons);
     });
 
   }

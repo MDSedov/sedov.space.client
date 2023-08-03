@@ -1,4 +1,4 @@
-<div class="row lesson-tasks-title">
+<div class="row tasks-title">
   <div class="col-12">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="25" cy="25" r="25" fill="#7E9DFB"/>
@@ -21,123 +21,174 @@
   </div>
 </div>
 
-<div class="lesson-tasks" *ngFor="let task of tasks let i = index">
+<div *ngIf="this.tasks.length == 0">
   <div class="row">
     <div class="col-12">
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h3 class="accordion-header" id="headingOne">
-            Задание {{i + 1}}
-            <svg data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
-                 width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      В этой лекции нет учебных заданий.
+    </div>
+  </div>
+</div>
+
+<div *ngIf="this.tasks.length > 0" class="lesson-tasks">
+  <div *ngFor="let task of tasks let i = index">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="accordion-header d-inline-flex" id="heading_{{task.id}}">Задание {{i + 1}}</h3>
+            <svg
+              data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse_' + task.id"
+              aria-expanded="true"
+              [attr.aria-controls]="'collapse_' + task.id"
+              width="34"
+              height="34"
+              viewBox="0 0 44 44"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <circle cx="22" cy="22" r="22" transform="rotate(90 22 22)" fill="#BDC4E8"/>
               <path d="M11 17L21.2929 27.2929C21.6834 27.6834 22.3166 27.6834 22.7071 27.2929L33 17" stroke="white" stroke-width="3" stroke-linecap="round"/>
             </svg>
-            <div class="task-complexity d-none d-md-block">
-              Сложность:
-              <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7.65336 1.43986C8.33655 -0.202728 10.6635 -0.202728 11.3466 1.43986L12.3372 3.82136C12.6252 4.51383 13.2764 4.98697 14.024 5.0469L16.595 5.25302C18.3683 5.39518 19.0874 7.6082 17.7363 8.76554L15.7774 10.4435C15.2079 10.9314 14.9591 11.697 15.1331 12.4265L15.7316 14.9354C16.1444 16.6658 14.2619 18.0335 12.7437 17.1062L10.5425 15.7618C9.90248 15.3708 9.09752 15.3708 8.45749 15.7618L6.25633 17.1062C4.73813 18.0335 2.85563 16.6658 3.2684 14.9354L3.86686 12.4265C4.04088 11.697 3.79214 10.9314 3.22256 10.4435L1.2637 8.76554C-0.087369 7.6082 0.631683 5.39518 2.40499 5.25302L4.97602 5.0469C5.7236 4.98697 6.37482 4.51383 6.66284 3.82136L7.65336 1.43986Z" fill="#3628D4"/>
-              </svg>
-              <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.62328 1.44214C9.14494 0.23616 10.8551 0.23616 11.3767 1.44214L12.5006 4.04045C12.8689 4.89178 13.6782 5.46924 14.603 5.54053L17.3755 5.75424C18.722 5.85804 19.2562 7.54904 18.2138 8.40763L16.219 10.0507C15.4757 10.6629 15.1501 11.6477 15.382 12.5823L16.0115 15.1199C16.3313 16.4091 14.9413 17.4472 13.796 16.7745L11.2661 15.2887C10.4844 14.8297 9.51556 14.8297 8.73394 15.2887L6.20401 16.7745C5.05866 17.4472 3.66868 16.4091 3.9885 15.12L4.61803 12.5823C4.8499 11.6477 4.52431 10.6629 3.781 10.0507L1.78617 8.40763C0.74376 7.54904 1.27805 5.85804 2.62453 5.75424L5.39696 5.54053C6.32178 5.46924 7.1311 4.89178 7.49935 4.04045L8.62328 1.44214Z" stroke="#3628D4"/>
-              </svg>
-              <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.62328 1.44214C9.14494 0.23616 10.8551 0.23616 11.3767 1.44214L12.5006 4.04045C12.8689 4.89178 13.6782 5.46924 14.603 5.54053L17.3755 5.75424C18.722 5.85804 19.2562 7.54904 18.2138 8.40763L16.219 10.0507C15.4757 10.6629 15.1501 11.6477 15.382 12.5823L16.0115 15.1199C16.3313 16.4091 14.9413 17.4472 13.796 16.7745L11.2661 15.2887C10.4844 14.8297 9.51556 14.8297 8.73394 15.2887L6.20401 16.7745C5.05866 17.4472 3.66868 16.4091 3.9885 15.12L4.61803 12.5823C4.8499 11.6477 4.52431 10.6629 3.781 10.0507L1.78617 8.40763C0.74376 7.54904 1.27805 5.85804 2.62453 5.75424L5.39696 5.54053C6.32178 5.46924 7.1311 4.89178 7.49935 4.04045L8.62328 1.44214Z" stroke="#3628D4"/>
-              </svg>
-              <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.62328 1.44214C9.14494 0.23616 10.8551 0.23616 11.3767 1.44214L12.5006 4.04045C12.8689 4.89178 13.6782 5.46924 14.603 5.54053L17.3755 5.75424C18.722 5.85804 19.2562 7.54904 18.2138 8.40763L16.219 10.0507C15.4757 10.6629 15.1501 11.6477 15.382 12.5823L16.0115 15.1199C16.3313 16.4091 14.9413 17.4472 13.796 16.7745L11.2661 15.2887C10.4844 14.8297 9.51556 14.8297 8.73394 15.2887L6.20401 16.7745C5.05866 17.4472 3.66868 16.4091 3.9885 15.12L4.61803 12.5823C4.8499 11.6477 4.52431 10.6629 3.781 10.0507L1.78617 8.40763C0.74376 7.54904 1.27805 5.85804 2.62453 5.75424L5.39696 5.54053C6.32178 5.46924 7.1311 4.89178 7.49935 4.04045L8.62328 1.44214Z" stroke="#3628D4"/>
-              </svg>
-              <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.62328 1.44214C9.14494 0.23616 10.8551 0.23616 11.3767 1.44214L12.5006 4.04045C12.8689 4.89178 13.6782 5.46924 14.603 5.54053L17.3755 5.75424C18.722 5.85804 19.2562 7.54904 18.2138 8.40763L16.219 10.0507C15.4757 10.6629 15.1501 11.6477 15.382 12.5823L16.0115 15.1199C16.3313 16.4091 14.9413 17.4472 13.796 16.7745L11.2661 15.2887C10.4844 14.8297 9.51556 14.8297 8.73394 15.2887L6.20401 16.7745C5.05866 17.4472 3.66868 16.4091 3.9885 15.12L4.61803 12.5823C4.8499 11.6477 4.52431 10.6629 3.781 10.0507L1.78617 8.40763C0.74376 7.54904 1.27805 5.85804 2.62453 5.75424L5.39696 5.54053C6.32178 5.46924 7.1311 4.89178 7.49935 4.04045L8.62328 1.44214Z" stroke="#3628D4"/>
-              </svg>
-            </div>
-          </h3>
+          </div>
 
-          <!--<div *ngIf="task.type == 'test'"-->
-          <!--id="collapseOne"-->
-          <!--class="accordion-collapse collapse show"-->
-          <!--aria-labelledby="headingOne"-->
-          <!--data-bs-parent="#accordionExample"-->
-          <!--&gt;-->
-          <!--<div class="accordion-body">-->
-          <!--<p><strong>{{task.title}}</strong></p>-->
-          <!--<p>Выберите правильный вариант ответа</p>-->
-          <!--<form [formGroup]="taskTestForm" (ngSubmit)="checkTask(task.id)">-->
-          <!--<div class="accordion-answers">-->
-          <!--<div class="accordion-answer">-->
-          <!--<input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="testAnswer">-->
-          <!--<label for="task_{{task.id}}_answer_1">{{task.option1}}</label>-->
-          <!--</div>-->
-          <!--<div class="accordion-answer">-->
-          <!--<input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="testAnswer">-->
-          <!--<label for="task_{{task.id}}_answer_2">{{task.option2}}</label>-->
-          <!--</div>-->
-          <!--<div class="accordion-answer">-->
-          <!--<input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="testAnswer">-->
-          <!--<label for="task_{{task.id}}_answer_3">{{task.option3}}</label>-->
-          <!--</div>-->
-          <!--<div class="accordion-answer">-->
-          <!--<input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="testAnswer">-->
-          <!--<label for="task_{{task.id}}_answer_4">{{task.option4}}</label>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--<button class="btn send-answer" type="submit">Проверить</button>-->
-          <!--</form>-->
-          <!--<p class="answer" *ngIf="taskCheck=='true'">Верно!</p>-->
-          <!--<p class="answer" *ngIf="taskCheck=='false'">Ошибка!</p>-->
-          <!--</div>-->
-          <!--</div>-->
+          <div class="col-6 d-flex justify-content-end task-complexity">
+          <p>Сложность:</p>
+          <svg *ngFor="let task of [].constructor(task.complexity)"
+               width="19"
+               height="18"
+               viewBox="0 0 19 18"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M7.65336 1.43986C8.33655 -0.202728 10.6635 -0.202728 11.3466 1.43986L12.3372 3.82136C12.6252 4.51383 13.2764 4.98697 14.024 5.0469L16.595 5.25302C18.3683 5.39518 19.0874 7.6082 17.7363 8.76554L15.7774 10.4435C15.2079 10.9314 14.9591 11.697 15.1331 12.4265L15.7316 14.9354C16.1444 16.6658 14.2619 18.0335 12.7437 17.1062L10.5425 15.7618C9.90248 15.3708 9.09752 15.3708 8.45749 15.7618L6.25633 17.1062C4.73813 18.0335 2.85563 16.6658 3.2684 14.9354L3.86686 12.4265C4.04088 11.697 3.79214 10.9314 3.22256 10.4435L1.2637 8.76554C-0.087369 7.6082 0.631683 5.39518 2.40499 5.25302L4.97602 5.0469C5.7236 4.98697 6.37482 4.51383 6.66284 3.82136L7.65336 1.43986Z" fill="#3628D4"/>
+          </svg>
+          <svg *ngFor="let task of [].constructor(5 - task.complexity)"
+               width="20"
+               height="18"
+               viewBox="0 0 20 18"
+               fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M8.62328 1.44214C9.14494 0.23616 10.8551 0.23616 11.3767 1.44214L12.5006 4.04045C12.8689 4.89178 13.6782 5.46924 14.603 5.54053L17.3755 5.75424C18.722 5.85804 19.2562 7.54904 18.2138 8.40763L16.219 10.0507C15.4757 10.6629 15.1501 11.6477 15.382 12.5823L16.0115 15.1199C16.3313 16.4091 14.9413 17.4472 13.796 16.7745L11.2661 15.2887C10.4844 14.8297 9.51556 14.8297 8.73394 15.2887L6.20401 16.7745C5.05866 17.4472 3.66868 16.4091 3.9885 15.12L4.61803 12.5823C4.8499 11.6477 4.52431 10.6629 3.781 10.0507L1.78617 8.40763C0.74376 7.54904 1.27805 5.85804 2.62453 5.75424L5.39696 5.54053C6.32178 5.46924 7.1311 4.89178 7.49935 4.04045L8.62328 1.44214Z" stroke="#3628D4"/>
+          </svg>
+        </div>
+        </div>
 
-          <div *ngIf="task.type == 'request'"
-               id="collapseOne"
+        <div class="row">
+          <div class="col-12" *ngIf="task.type == 'test'"
+                     id="collapse_{{task.id}}"
+                     class="accordion-collapse collapse show"
+                     [attr.aria-labelledby]="'heading_' + task.id"
+                     data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            <p><strong>{{task.title}}</strong></p>
+            <p>Выберите правильный вариант ответа</p>
+            <form [formGroup]="taskTestForm" (ngSubmit)="taskTestCheck()">
+              <input formControlName="id" type="hidden" [ngModel]="task.id">
+              <div class="accordion-answers">
+                <div class="accordion-answer">
+                  <input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="answer">
+                  <label for="task_{{task.id}}_answer_1">{{task.option1}}</label>
+                </div>
+                <div class="accordion-answer">
+                  <input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="answer">
+                  <label for="task_{{task.id}}_answer_2">{{task.option2}}</label>
+                </div>
+                <div class="accordion-answer">
+                  <input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="answer">
+                  <label for="task_{{task.id}}_answer_3">{{task.option3}}</label>
+                </div>
+                <div class="accordion-answer">
+                  <input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="answer">
+                  <label for="task_{{task.id}}_answer_4">{{task.option4}}</label>
+                </div>
+              </div>
+              <button class="btn send-answer" type="submit">Проверить</button>
+              <div class="validations" *ngIf="taskTestForm.get('answer')?.invalid && taskTestForm.get('answer')?.touched">
+                <small class="error" *ngIf="taskTestForm.get('answer')?.errors?.required">
+                  Выберите вариант ответа
+                </small>
+              </div>
+            </form>
+          </div>
+          <div *ngIf="this.taskTestResponse == 'OK'">
+            <p *ngIf="this.taskTestSuccess">Верно!</p>
+            <p *ngIf="!this.taskTestSuccess">Ошибка!</p>
+          </div>
+        </div>
+
+          <div class="col-12" *ngIf="task.type == 'request'"
+               id="collapse_{{task.id}}"
                class="accordion-collapse collapse show"
-               aria-labelledby="headingOne"
+               [attr.aria-labelledby]="'heading_' + task.id"
                data-bs-parent="#accordionExample"
           >
             <div>
               <p><strong>{{task.title}}</strong></p>
               <p>{{task.text}}</p>
-              <form [formGroup]="taskForm" (ngSubmit)="taskCheck()">
-                <input formControlName="id" type="hidden" [ngModel]="this.task.id">
-                <textarea formControlName="answer" class="form-control" rows="3">select * from table;</textarea>
+              <form [formGroup]="taskRequestForm" (ngSubmit)="taskRequestCheck()">
+                <input formControlName="id" type="hidden" [ngModel]="task.id">
+                <div class="form-floating">
+                  <textarea
+                    formControlName="answer"
+                    class="form-control"
+                    placeholder="Введите SQL запрос"
+                    id="floating_{{task.id}}"
+                    required
+                  >select * from tickets limit 10;</textarea>
+                  <label for="floating_{{task.id}}">Введите SQL запрос</label>
+                </div>
+                <div class="validations" *ngIf="taskRequestForm.get('answer')?.invalid && taskRequestForm.get('answer')?.touched">
+                  <small class="error" *ngIf="taskRequestForm.get('answer')?.errors?.required">
+                    Заполните поле вашим вариантом SQL запроса
+                  </small>
+                </div>
                 <button class="btn send-answer" type="submit">Проверить</button>
               </form>
             </div>
 
-            <div>{{this.taskAnswer}}</div>
-
-            <div>
-              <p>Результат вашего запроса</p>
-              <table class="table table-hover">
-                <thead>
-                <tr class="table-primary" *ngFor="let row of this.taskRequestAnswer | keyvalue | slice:0:1">
-                  <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let row of this.taskRequestAnswer | keyvalue">
-                  <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
-                </tr>
-                </tbody>
-              </table>
+            <div *ngIf="this.taskRequestResponse == 'UNKNOWN_PROBLEM'">
+              <p>Ошибка при выполнении запроса:</p>
+              <p>{{this.taskRequestErrorMessage}}</p>
             </div>
 
-            <br>
+            <div *ngIf="this.taskRequestResponse == 'OK'" class="task-answer">
+              <p *ngIf="this.taskRequestSuccess">Верно!</p>
+              <p *ngIf="!this.taskRequestSuccess">Ошибка!<br>Результат вашего запроса отличается от результата правильного запроса.</p>
 
-            <div>
-              <p>Результат правильного запроса</p>
-              <table class="table table-hover">
-                <thead>
-                <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue | slice:0:1">
-                  <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue">
-                  <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
-                </tr>
-                </tbody>
-              </table>
+              <p>Результат вашего запроса:</p>
+              <div class="table-scrollable">
+                <table class="lesson-table table table-hover">
+                  <thead>
+                  <tr *ngFor="let row of this.taskRequestAnswer | keyvalue | slice:0:1">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let row of this.taskRequestAnswer | keyvalue">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p>Результат правильного запроса:</p>
+              <div class="table-scrollable">
+                <table class="lesson-table table table-hover">
+                  <thead>
+                  <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue | slice:0:1">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.key}}</td>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let row of this.taskCorrectAnswer | keyvalue">
+                    <td *ngFor="let cell of row.value | keyvalue">{{cell.value}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>

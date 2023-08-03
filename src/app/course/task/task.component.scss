@@ -1,0 +1,150 @@
+.lesson-tasks {
+  position: relative;
+  margin-top: 30px;
+}
+
+.lesson-tasks-title {
+  margin-top: 5%;
+}
+
+.lesson-tasks .task-complexity {
+  margin-top: 7px;
+
+}
+
+.lesson-tasks .task-complexity p {
+  font-family: Ubuntu;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-right: 10px;
+}
+
+.lesson-tasks .task-complexity svg {
+  margin-left: 0px;
+  margin-top: 3px;
+}
+
+.lesson-tasks .accordion-item {
+  margin-bottom: 3%;
+  padding: 3% 5%;
+  background: #E2E7F6;
+  border-radius: 12px;
+}
+
+.lesson-tasks h3 {
+  font-family: Ubuntu;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks svg {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
+.lesson-tasks .accordion-body {
+  margin-top: 10px;
+  padding: 0px;
+}
+
+.lesson-tasks .accordion-body strong {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks .accordion-body p {
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+
+.lesson-tasks .accordion-answers {
+  font-family: Ubuntu;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  margin-top: 30px;
+}
+
+.lesson-tasks .accordion-answer {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px 30px;
+  margin-top: 15px;
+}
+
+.lesson-tasks .accordion-answer label {
+  margin-left: 25px;
+  display: inline;
+}
+
+.lesson-tasks button.send-answer {
+  margin: 20px 0;
+  background: #3628D4;
+  border-radius: 15px;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 15px 30px;
+}
+
+.lesson-tasks button.send-answer:hover {
+  background: #D4DAFC;
+  color: #3628D4;
+}
+
+.lesson-tasks .accordion-body p.answer {
+  font-family: Ubuntu;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: 0em;
+}
+
+.table-scrollable {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+table.lesson-table thead {
+  color: #fff;
+  background: #3628D4;
+}
+
+table.lesson-table thead td {
+  border: 1px solid #fff;
+}
+
+table.lesson-table tbody tr:nth-child(even) {
+  background: #E2E7F6;
+}
+
+table.lesson-table tbody tr:nth-child(even) td {
+  border: 1px dashed #fff;
+}
+
+table.lesson-table tbody tr:nth-child(odd) {
+  background: #fff;
+}
+
+table.lesson-table tbody tr:nth-child(odd) td {
+  border: 1px dashed #E2E7F6;
+}
+
+

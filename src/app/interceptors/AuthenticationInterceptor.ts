@@ -21,14 +21,14 @@ export class AuthenticationInterceptor implements HttpInterceptor {
       .pipe(
         map((event:HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
-            console.log("Http Response event... " + event.status);
+            // console.log("Http Response event... " + event.status);
           } else {
-            console.log("no http response");
+            // console.log("no http response");
           }
           return event;
         }),
         catchError(error => {
-          console.log("Error response status: ", error.status);
+          // console.log("Error response status: ", error.status);
           if (error.status === 401) {
             this.userService.clearCurrentUser();
             this.router.navigateByUrl("/login");
