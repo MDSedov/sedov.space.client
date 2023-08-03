@@ -49,7 +49,6 @@ export class TaskComponent implements OnInit {
 
   getAllTasksByLesson(id: number): void {
     this.taskService.getAllTasksByLesson(id).subscribe(response => {
-      this.taskTestResponse = response.body.responseMessage;
       this.tasks = response.body;
     });
   }
@@ -78,9 +77,10 @@ export class TaskComponent implements OnInit {
       response => {
         if (response.body.responseMessage == "OK") {
           this.taskTestResponse = response.body.responseMessage;
-          this.taskTestSuccess = response.body.taskSuccess;
+          this.taskTestSuccess = JSON.parse(response.body.responseObject).taskSuccess;
         } else {
-          this.taskTestErrorMessage = response.body.responseObject;
+          this.taskTestResponse = response.body.responseMessage;
+          this.taskTestSuccess = JSON.parse(response.body.responseObject).taskSuccess;
         }
       },
       (error: {[key: string]: any}) => {

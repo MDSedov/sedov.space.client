@@ -113,7 +113,7 @@
               </div>
             </form>
           </div>
-          <div *ngIf="this.taskTestResponse == 'OK'">
+          <div *ngIf="this.taskTestResponse == 'OK'" class="task-answer">
             <p *ngIf="this.taskTestSuccess">Верно!</p>
             <p *ngIf="!this.taskTestSuccess">Ошибка!</p>
           </div>
@@ -137,7 +137,7 @@
                     placeholder="Введите SQL запрос"
                     id="floating_{{task.id}}"
                     required
-                  >select * from tickets limit 10;</textarea>
+                  ></textarea>
                   <label for="floating_{{task.id}}">Введите SQL запрос</label>
                 </div>
                 <div class="validations" *ngIf="taskRequestForm.get('answer')?.invalid && taskRequestForm.get('answer')?.touched">
