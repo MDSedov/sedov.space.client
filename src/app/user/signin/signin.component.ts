@@ -53,15 +53,26 @@ export class SigninComponent implements OnInit {
           };
           this.userService.setUserInfo(this.userInfo);
           this.router.navigate(["/user/info"])
+        } else if (response.body.responseMessage == 'EMAIL_IS_NOT_CONFIRM') {
+          this.userInfo = {
+            header: 'Войти не удалось',
+            message: response.body.responseObject,
+            showButton: true,
+            buttonTitle: "Отправить письмо повторно",
+            buttonRouter: "/user/email"
+          };
+          this.userService.setUserInfo(this.userInfo);
+          this.router.navigate(["/user/info"])
         } else {
-          // this.dynamicWindow = {
-          //   header: 'Неизвестная ошибка',
-          //   message: response.body.responseObject,
-          //   showButton: true,
-          //   buttonTitle: "Попробовать еще раз",
-          //   buttonShowPage: "signinForm"
-          // };
-          // this.showPage = "dynamicWindow";
+          this.userInfo = {
+            header: 'Войти не удалось',
+            message: response.body.responseObject,
+            showButton: true,
+            buttonTitle: "Попробовать еще раз",
+            buttonRouter: "/user/signin"
+          };
+          this.userService.setUserInfo(this.userInfo);
+          this.router.navigate(["/user/info"])
         }
       },
       (error: {[key: string]: any}) => {
