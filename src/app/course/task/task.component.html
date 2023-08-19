@@ -34,7 +34,7 @@
     <div class="accordion" id="accordionExample">
       <div class="accordion-item">
         <div class="row">
-          <div class="col-6">
+          <div class="col-xs-12 col-sm-6">
             <h3 class="accordion-header d-inline-flex" id="heading_{{task.id}}">Задание {{i + 1}}</h3>
             <svg
               data-bs-toggle="collapse"
@@ -52,7 +52,7 @@
             </svg>
           </div>
 
-          <div class="col-6 d-flex justify-content-end task-complexity">
+          <div class="d-none d-sm-block col-sm-6 d-sm-flex justify-content-end task-complexity">
           <p>Сложность:</p>
           <svg *ngFor="let task of [].constructor(task.complexity)"
                width="19"
