@@ -3,11 +3,20 @@
   text-align: left;
 }
 
+.row.about p {
+  font-family: Ubuntu;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
 .about h1 {
   font-family: 'Ubuntu';
   font-style: normal;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 130%;
   color: #27292E;
 }
@@ -33,6 +42,10 @@
 
 .module {
   vertical-align: middle;
+}
+
+.module h2 {
+  margin-left: 0px;
 }
 
 .module .point {
@@ -77,4 +90,10 @@
 .lesson .text a {
   color: #3628D4;
   text-decoration: none;
+  font-family: Ubuntu;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
 }
