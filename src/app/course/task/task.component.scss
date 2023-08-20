@@ -109,6 +109,26 @@
   color: #3628D4;
 }
 
+.task-test .task-test-result {
+  margin-top: 30px;
+}
+
+.task-test .task-test-result p.task-test-result-success {
+  color:green;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.task-test .task-test-result .task-test-result-error {
+  color:red;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
 .lesson-tasks .accordion-body p.answer {
   font-family: Ubuntu;
   font-size: 22px;

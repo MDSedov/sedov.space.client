@@ -81,43 +81,42 @@
                      class="accordion-collapse collapse show"
                      [attr.aria-labelledby]="'heading_' + task.id"
                      data-bs-parent="#accordionExample"
-        >
-          <div class="accordion-body">
-            <p><strong>{{task.title}}</strong></p>
-            <p>Выберите правильный вариант ответа</p>
-            <form [formGroup]="taskTestForm" (ngSubmit)="taskTestCheck()">
-              <input formControlName="id" type="hidden" [ngModel]="task.id">
-              <div class="accordion-answers">
-                <div class="accordion-answer">
-                  <input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="answer">
-                  <label for="task_{{task.id}}_answer_1">{{task.option1}}</label>
+          >
+            <div class="accordion-body task-test">
+              <p><strong>{{task.title}}</strong></p>
+              <p>Выберите правильный вариант ответа</p>
+              <form [formGroup]="taskTestForm" (ngSubmit)="taskTestCheck(task.id)">
+                <div class="accordion-answers">
+                  <div class="accordion-answer">
+                    <input type="radio" id="task_{{task.id}}_answer_1" name="answer" value="{{task.option1}}" formControlName="answer">
+                    <label for="task_{{task.id}}_answer_1">{{task.option1}}</label>
+                  </div>
+                  <div class="accordion-answer">
+                    <input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="answer">
+                    <label for="task_{{task.id}}_answer_2">{{task.option2}}</label>
+                  </div>
+                  <div class="accordion-answer">
+                    <input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="answer">
+                    <label for="task_{{task.id}}_answer_3">{{task.option3}}</label>
+                  </div>
+                  <div class="accordion-answer">
+                    <input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="answer">
+                    <label for="task_{{task.id}}_answer_4">{{task.option4}}</label>
+                  </div>
                 </div>
-                <div class="accordion-answer">
-                  <input type="radio" id="task_{{task.id}}_answer_2" name="answer" value="{{task.option2}}" formControlName="answer">
-                  <label for="task_{{task.id}}_answer_2">{{task.option2}}</label>
+                <div *ngIf="this.taskTestResponse == 'OK' && this.taskTestId == task.id" class="task-test-result">
+                  <p *ngIf="this.taskTestSuccess" class="task-test-result-success">Поздравляем! Вы выбрали правильный ответ!</p>
+                  <p *ngIf="!this.taskTestSuccess" class="task-test-result-error">Ошибка! К сожалению выбранный Вами ответ не правильный. Попробуйте еще раз.</p>
                 </div>
-                <div class="accordion-answer">
-                  <input type="radio" id="task_{{task.id}}_answer_3" name="answer" value="{{task.option3}}" formControlName="answer">
-                  <label for="task_{{task.id}}_answer_3">{{task.option3}}</label>
+                <button class="btn send-answer" type="submit">Проверить</button>
+                <div class="validations" *ngIf="taskTestForm.get('answer')?.invalid && taskTestForm.get('answer')?.touched">
+                  <small class="error" *ngIf="taskTestForm.get('answer')?.errors?.required">
+                    Выберите вариант ответа
+                  </small>
                 </div>
-                <div class="accordion-answer">
-                  <input type="radio" id="task_{{task.id}}_answer_4" name="answer" value="{{task.option4}}" formControlName="answer">
-                  <label for="task_{{task.id}}_answer_4">{{task.option4}}</label>
-                </div>
-              </div>
-              <button class="btn send-answer" type="submit">Проверить</button>
-              <div class="validations" *ngIf="taskTestForm.get('answer')?.invalid && taskTestForm.get('answer')?.touched">
-                <small class="error" *ngIf="taskTestForm.get('answer')?.errors?.required">
-                  Выберите вариант ответа
-                </small>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-          <div *ngIf="this.taskTestResponse == 'OK'" class="task-answer">
-            <p *ngIf="this.taskTestSuccess">Верно!</p>
-            <p *ngIf="!this.taskTestSuccess">Ошибка!</p>
-          </div>
-        </div>
 
           <div class="col-12" *ngIf="task.type == 'request'"
                id="collapse_{{task.id}}"

@@ -21,8 +21,8 @@ export class TaskService {
       })
     )  }
 
-  taskCheck(task:Task):Observable<any> {
-    return this.http.post(environment.apiURL + "/api/task/" + task.id + "/check", task, {
+  taskCheck(id?: number, task?: Task):Observable<any> {
+    return this.http.post(environment.apiURL + "/api/task/" + id + "/check", task, {
       observe: "response",
     }).pipe(
       map((response: {[key: string]: any}) => {

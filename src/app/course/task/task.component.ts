@@ -25,6 +25,7 @@ export class TaskComponent implements OnInit {
   taskRequestSuccess: boolean;
   taskTestForm: FormGroup;
   taskRequestForm: FormGroup;
+  taskTestId: number;
 
   constructor(private route: ActivatedRoute,
               private taskService: TaskService,
@@ -72,9 +73,10 @@ export class TaskComponent implements OnInit {
     )
   }
 
-  taskTestCheck():void {
-    this.taskService.taskCheck(this.taskTestForm.value).subscribe(
+  taskTestCheck(id: number):void {
+    this.taskService.taskCheck(id, this.taskTestForm.value).subscribe(
       response => {
+        this.taskTestId = id;
         if (response.body.responseMessage == "OK") {
           this.taskTestResponse = response.body.responseMessage;
           this.taskTestSuccess = JSON.parse(response.body.responseObject).taskSuccess;
