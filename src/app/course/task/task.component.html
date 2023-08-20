@@ -124,11 +124,10 @@
                [attr.aria-labelledby]="'heading_' + task.id"
                data-bs-parent="#accordionExample"
           >
-            <div>
+            <div class="accordion-body">
               <p><strong>{{task.title}}</strong></p>
               <p>{{task.text}}</p>
-              <form [formGroup]="taskRequestForm" (ngSubmit)="taskRequestCheck()">
-                <input formControlName="id" type="hidden" [ngModel]="task.id">
+              <form [formGroup]="taskRequestForm" (ngSubmit)="taskRequestCheck(task.id)">
                 <div class="form-floating">
                   <textarea
                     formControlName="answer"
@@ -148,14 +147,14 @@
               </form>
             </div>
 
-            <div *ngIf="this.taskRequestResponse == 'UNKNOWN_PROBLEM'">
-              <p>Ошибка при выполнении запроса:</p>
-              <p>{{this.taskRequestErrorMessage}}</p>
+            <div *ngIf="this.taskRequestResponse == 'UNKNOWN_PROBLEM' && this.taskRequestId == task.id" class="task-request-result">
+              <p class="task-request-result-error">Ошибка при выполнении запроса:</p>
+              <p class="task-request-result-error">{{this.taskRequestErrorMessage}}</p>
             </div>
 
-            <div *ngIf="this.taskRequestResponse == 'OK'" class="task-answer">
-              <p *ngIf="this.taskRequestSuccess">Верно!</p>
-              <p *ngIf="!this.taskRequestSuccess">Ошибка!<br>Результат вашего запроса отличается от результата правильного запроса.</p>
+            <div *ngIf="this.taskRequestResponse == 'OK' && this.taskRequestId == task.id" class="task-request-result">
+              <p *ngIf="this.taskRequestSuccess" class="task-request-result-success">Поздравляем! Вы составили верный SQL запрос полностью выполняющий условия задания!</p>
+              <p *ngIf="!this.taskRequestSuccess" class="task-request-result-error">Ошибка!<br>Результат вашего запроса отличается от результата правильного запроса. Попробуйте еще раз!</p>
 
               <p>Результат вашего запроса:</p>
               <div class="table-scrollable">
