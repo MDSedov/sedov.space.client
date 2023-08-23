@@ -17,7 +17,8 @@ export interface ModuleInterface {
   number: number,
   title: string,
   text: string,
-  time: string
+  time: string,
+  countTasks: string
 }
 
 export interface LessonInterface {
@@ -26,7 +27,8 @@ export interface LessonInterface {
   number: number,
   title: string,
   text: string,
-  time: string
+  time: string,
+  countTasks: string
 }
 
 @Component({
